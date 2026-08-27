@@ -1,0 +1,480 @@
+/* Bento layout and progressive scroll-motion layer. */
+:root {
+  --bento-radius: clamp(18px, 2vw, 30px);
+  --bento-gap: clamp(12px, 1.4vw, 22px);
+  --bento-shadow: 0 28px 80px rgba(41, 21, 20, 0.12);
+}
+
+body {
+  overflow-x: clip;
+  background:
+    radial-gradient(circle at 12% 22%, rgba(222, 118, 91, 0.13), transparent 24rem),
+    radial-gradient(circle at 88% 52%, rgba(185, 79, 55, 0.09), transparent 28rem),
+    var(--cream);
+}
+
+.bento-hero {
+  min-height: 760px;
+  margin: clamp(12px, 1.4vw, 22px);
+  border-radius: var(--bento-radius);
+  grid-template-columns: minmax(380px, 0.86fr) minmax(560px, 1.14fr);
+  isolation: isolate;
+  box-shadow: var(--bento-shadow);
+}
+
+.bento-hero::before,
+.bento-hero::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.bento-hero::before {
+  width: 520px;
+  height: 520px;
+  right: 12%;
+  top: 8%;
+  border: 1px solid rgba(247, 239, 229, 0.15);
+  border-radius: 50%;
+  box-shadow: 0 0 0 80px rgba(247, 239, 229, 0.025), 0 0 0 160px rgba(247, 239, 229, 0.018);
+}
+
+.bento-hero::after {
+  inset: 0;
+  z-index: -1;
+  opacity: 0.22;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: linear-gradient(90deg, transparent, #000 48%, #000);
+}
+
+.bento-hero-copy {
+  width: calc(100% - clamp(28px, 4vw, 64px));
+  margin: clamp(28px, 4vw, 64px) 0 clamp(28px, 4vw, 64px) clamp(28px, 4vw, 64px);
+  padding: clamp(32px, 4vw, 62px);
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid rgba(247, 239, 229, 0.19);
+  border-radius: calc(var(--bento-radius) - 6px);
+  background: linear-gradient(145deg, rgba(247, 239, 229, 0.1), rgba(247, 239, 229, 0.035));
+  backdrop-filter: blur(12px);
+}
+
+.bento-hero-copy h1 {
+  font-size: clamp(54px, 6.2vw, 100px);
+}
+
+.floating-collage {
+  min-height: 760px;
+  perspective: 1200px;
+}
+
+.floating-collage .hero-preview {
+  width: clamp(230px, 24vw, 390px);
+  height: clamp(190px, 20vw, 300px);
+  border: 1px solid rgba(247, 239, 229, 0.78);
+  border-radius: 18px;
+  box-shadow: 0 32px 70px rgba(16, 6, 5, 0.38);
+  will-change: translate;
+}
+
+.floating-collage .hero-preview img {
+  transition: transform 0.55s ease;
+}
+
+.floating-collage .hero-preview:hover img {
+  transform: scale(1.035);
+}
+
+.floating-collage .hero-preview-1 {
+  left: 4%;
+  top: 7%;
+  z-index: 3;
+  transform: rotate(-5deg);
+  --parallax-distance: 54px;
+}
+
+.floating-collage .hero-preview-2 {
+  right: -4%;
+  top: 16%;
+  z-index: 2;
+  transform: rotate(4deg);
+  --parallax-distance: 82px;
+}
+
+.floating-collage .hero-preview-3 {
+  left: 27%;
+  top: 36%;
+  z-index: 6;
+  transform: rotate(1.5deg);
+  --parallax-distance: 108px;
+}
+
+.floating-collage .hero-preview-4 {
+  left: 0;
+  bottom: 5%;
+  z-index: 4;
+  transform: rotate(-3deg);
+  --parallax-distance: 72px;
+}
+
+.floating-collage .hero-preview-5 {
+  right: 2%;
+  bottom: 2%;
+  z-index: 5;
+  transform: rotate(5deg);
+  --parallax-distance: 96px;
+}
+
+.parallax-band {
+  margin-block: clamp(10px, 1.2vw, 18px);
+  border: 1px solid var(--line);
+  border-radius: var(--bento-radius);
+  background: rgba(247, 239, 229, 0.72);
+  backdrop-filter: blur(14px);
+}
+
+.bento-feature {
+  align-items: stretch;
+  gap: var(--bento-gap);
+}
+
+.bento-feature .hotel-intro {
+  top: 104px;
+  padding: clamp(28px, 3.5vw, 52px);
+  border: 1px solid var(--line);
+  border-radius: var(--bento-radius);
+  background: linear-gradient(145deg, var(--sand), rgba(234, 210, 186, 0.52));
+  box-shadow: 0 20px 55px rgba(41, 21, 20, 0.08);
+}
+
+.bento-feature .hotel-cards {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-auto-rows: minmax(220px, auto);
+  gap: var(--bento-gap);
+}
+
+.bento-feature .hotel-card {
+  grid-column: span 3;
+  border: 1px solid var(--line);
+  border-radius: var(--bento-radius);
+  box-shadow: 0 18px 45px rgba(41, 21, 20, 0.08);
+}
+
+.bento-feature .hotel-card:first-child {
+  grid-column: span 4;
+  grid-row: span 2;
+}
+
+.bento-feature .hotel-card:nth-child(2) {
+  grid-column: span 2;
+}
+
+.bento-feature .hotel-card:nth-child(3) {
+  grid-column: span 2;
+}
+
+.bento-feature .hotel-card:nth-child(4),
+.bento-feature .hotel-card:nth-child(5),
+.bento-feature .hotel-card:nth-child(6) {
+  grid-column: span 2;
+}
+
+.bento-feature .hotel-card img,
+.bento-feature .hotel-card:first-child img {
+  height: 100%;
+  min-height: 220px;
+  aspect-ratio: auto;
+}
+
+.bento-feature .hotel-card:first-child img {
+  min-height: 510px;
+}
+
+.bento-directory {
+  margin-inline: clamp(12px, 1.4vw, 22px);
+  border-radius: var(--bento-radius);
+  box-shadow: var(--bento-shadow);
+}
+
+.bento-directory .industry-grid {
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--bento-gap);
+  border: 0;
+}
+
+.bento-directory .industry-card {
+  grid-column: span 6;
+  min-height: 250px;
+  padding: clamp(22px, 2.6vw, 38px);
+  border: 1px solid var(--line);
+  border-radius: calc(var(--bento-radius) - 7px);
+  background: rgba(247, 239, 229, 0.83);
+  overflow: hidden;
+}
+
+.bento-directory .industry-card:nth-child(3n + 1) {
+  grid-column: span 7;
+}
+
+.bento-directory .industry-card:nth-child(3n + 2) {
+  grid-column: span 5;
+}
+
+.bento-directory .industry-card:nth-child(4n) {
+  background: var(--ink);
+  color: var(--cream);
+}
+
+.bento-directory .industry-card:nth-child(4n) p,
+.bento-directory .industry-card:nth-child(4n) .card-topline {
+  color: rgba(247, 239, 229, 0.62);
+}
+
+.bento-directory .industry-card:nth-child(odd),
+.bento-directory .industry-card:nth-child(even) {
+  padding: clamp(22px, 2.6vw, 38px);
+  border: 1px solid var(--line);
+}
+
+.bento-directory .industry-card:hover {
+  translate: 0 -7px;
+  box-shadow: 0 22px 42px rgba(41, 21, 20, 0.14);
+}
+
+.bento-closing {
+  margin: clamp(12px, 1.4vw, 22px);
+  border-radius: var(--bento-radius);
+  box-shadow: var(--bento-shadow);
+}
+
+.bento-detail-hero {
+  margin: clamp(12px, 1.4vw, 22px);
+  border: 1px solid var(--line);
+  border-radius: var(--bento-radius);
+  background:
+    linear-gradient(120deg, rgba(247, 239, 229, 0.5), transparent 55%),
+    var(--sand);
+  box-shadow: var(--bento-shadow);
+}
+
+.bento-templates {
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--bento-gap);
+}
+
+.bento-templates .template-card {
+  grid-column: span 6;
+  padding: var(--bento-gap);
+  border: 1px solid var(--line);
+  border-radius: var(--bento-radius);
+  background: rgba(247, 239, 229, 0.76);
+}
+
+.bento-templates .template-card:nth-child(3n + 1) {
+  grid-column: span 7;
+}
+
+.bento-templates .template-card:nth-child(3n + 2) {
+  grid-column: span 5;
+}
+
+.bento-templates .browser-frame {
+  border-radius: calc(var(--bento-radius) - 9px);
+}
+
+.bento-templates .preview-stage {
+  height: clamp(310px, 34vw, 520px);
+}
+
+@supports (animation-timeline: view()) {
+  .floating-collage .hero-preview {
+    animation: hero-card-parallax linear both;
+    animation-timeline: scroll(root block);
+    animation-range: 0 900px;
+  }
+
+  .hotel-card,
+  .industry-card,
+  .template-card,
+  .bento-closing > * {
+    animation: bento-view-parallax linear both;
+    animation-timeline: view(block);
+    animation-range: entry 0% cover 38%;
+  }
+}
+
+@keyframes hero-card-parallax {
+  from { translate: 0 0; }
+  to { translate: 0 calc(var(--parallax-distance) * -1); }
+}
+
+@keyframes bento-view-parallax {
+  from { opacity: 0.72; translate: 0 34px; }
+  to { opacity: 1; translate: 0 0; }
+}
+
+@media (max-width: 1080px) {
+  .bento-hero {
+    grid-template-columns: minmax(330px, 0.82fr) minmax(480px, 1.18fr);
+  }
+
+  .floating-collage .hero-preview {
+    width: clamp(220px, 27vw, 330px);
+    height: clamp(175px, 21vw, 250px);
+  }
+}
+
+@media (max-width: 900px) {
+  .bento-hero {
+    min-height: 980px;
+    display: block;
+  }
+
+  .bento-hero-copy {
+    width: auto;
+    min-height: 460px;
+    margin: 24px;
+    padding: clamp(28px, 6vw, 54px);
+  }
+
+  .floating-collage {
+    position: absolute;
+    inset: 45% 0 0;
+    min-height: 540px;
+  }
+
+  .floating-collage .hero-preview {
+    width: clamp(210px, 43vw, 340px);
+    height: clamp(170px, 31vw, 245px);
+  }
+
+  .floating-collage .hero-preview-1 { left: 3%; top: 5%; }
+  .floating-collage .hero-preview-2 { right: -5%; top: 10%; }
+  .floating-collage .hero-preview-3 { left: 31%; top: 34%; }
+  .floating-collage .hero-preview-4 { left: 1%; bottom: 1%; }
+  .floating-collage .hero-preview-5 { right: 1%; bottom: -2%; }
+
+  .bento-feature .hotel-intro {
+    position: static;
+  }
+
+  .bento-directory .industry-card,
+  .bento-directory .industry-card:nth-child(3n + 1),
+  .bento-directory .industry-card:nth-child(3n + 2),
+  .bento-templates .template-card,
+  .bento-templates .template-card:nth-child(3n + 1),
+  .bento-templates .template-card:nth-child(3n + 2) {
+    grid-column: span 12;
+  }
+}
+
+@media (max-width: 640px) {
+  .bento-hero {
+    min-height: 850px;
+    margin: 8px;
+    width: calc(100% - 16px);
+    min-width: 0;
+  }
+
+  .bento-hero-copy {
+    max-width: calc(100% - 24px);
+    min-width: 0;
+    min-height: 430px;
+    margin: 12px;
+    padding: 28px 22px;
+    overflow: hidden;
+  }
+
+  .bento-hero-copy h1 {
+    max-width: 100%;
+    font-size: clamp(39px, 11vw, 47px);
+    overflow-wrap: break-word;
+  }
+
+  .bento-hero-copy .hero-button {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .floating-collage {
+    inset: 48% 0 0;
+  }
+
+  .floating-collage .hero-preview {
+    width: 59vw;
+    height: 190px;
+  }
+
+  .floating-collage .hero-preview > span {
+    padding: 12px;
+  }
+
+  .floating-collage .hero-preview b {
+    font-size: 15px;
+  }
+
+  .floating-collage .hero-preview-1 { left: 4%; top: 3%; }
+  .floating-collage .hero-preview-2 { right: -25%; top: 12%; }
+  .floating-collage .hero-preview-3 { left: 22%; top: 31%; }
+  .floating-collage .hero-preview-4 { left: -20%; bottom: 0; }
+  .floating-collage .hero-preview-5 { right: -8%; bottom: -5%; display: block; }
+
+  .bento-feature .hotel-cards {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+  }
+
+  .bento-feature .hotel-card,
+  .bento-feature .hotel-card:first-child,
+  .bento-feature .hotel-card:nth-child(n) {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .bento-feature .hotel-card img,
+  .bento-feature .hotel-card:first-child img {
+    min-height: 0;
+    height: auto;
+    aspect-ratio: 1.28;
+  }
+
+  .bento-directory {
+    margin-inline: 8px;
+  }
+
+  .bento-directory .industry-grid,
+  .bento-templates {
+    grid-template-columns: 1fr;
+  }
+
+  .bento-directory .industry-card,
+  .bento-directory .industry-card:nth-child(n),
+  .bento-templates .template-card,
+  .bento-templates .template-card:nth-child(n) {
+    grid-column: auto;
+  }
+
+  .bento-templates .preview-stage {
+    height: 70vw;
+    min-height: 260px;
+  }
+
+  .bento-detail-hero,
+  .bento-closing {
+    margin: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .floating-collage .hero-preview,
+  .hotel-card,
+  .industry-card,
+  .template-card,
+  .bento-closing > * {
+    animation: none !important;
+    translate: none !important;
+  }
+}

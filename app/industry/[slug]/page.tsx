@@ -25,7 +25,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
         </a>
       </header>
 
-      <section className="detail-hero shell">
+      <section className="detail-hero shell bento-detail-hero">
         <div className="eyebrow"><span className="eyebrow-mark" /> /{industry.shortName.toUpperCase()} / WEB DIRECTIONS</div>
         <h1>{industry.name.toUpperCase()}<br />DESIGN TEMPLATES.</h1>
         <div className="detail-summary">
@@ -44,7 +44,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
       </section>
 
       {industry.templates.length ? (
-        <section className="templates shell" aria-label={`${industry.name} templates`}>
+        <section className="templates shell bento-templates" aria-label={`${industry.name} templates`}>
           {industry.templates.map((template, index) => {
             const hostname = new URL(template.url).hostname;
             return (

@@ -2,9 +2,20 @@ import Link from "next/link";
 import { industries } from "./template-data";
 
 export default function Home() {
-  const featured = industries.flatMap((industry) =>
-    industry.templates.slice(0, 1).map((template) => ({ ...template, industry: industry.shortName }))
-  ).slice(0, 4);
+  const featuredNames = [
+    "Casa Mare Goa",
+    "Devdaar House Himalayan",
+    "Mitti & Ember",
+    "Quality Mint & Allied Chemicals",
+    "Kesar Bagh Haveli",
+  ];
+  const allTemplates = industries.flatMap((industry) =>
+    industry.templates.map((template) => ({ ...template, industry: industry.shortName }))
+  );
+  const featured = featuredNames.flatMap((name) => {
+    const template = allTemplates.find((candidate) => candidate.name === name);
+    return template ? [template] : [];
+  });
   const hotels = industries.find((industry) => industry.slug === "hotels")!;
 
   return (
@@ -23,14 +34,14 @@ export default function Home() {
         </a>
       </header>
 
-      <section className="hero" id="templates">
-        <div className="hero-copy shell">
+      <section className="hero bento-hero" id="templates">
+        <div className="hero-copy shell bento-hero-copy">
           <div className="eyebrow"><span className="eyebrow-mark" /> Curated web directions</div>
           <h1>Websites worth<br />stepping into.</h1>
           <p>Browse design-led website templates built for hospitality, healthcare, food, creative teams and more.</p>
           <a className="hero-button" href="#industries">Explore templates <span aria-hidden="true">↓</span></a>
         </div>
-        <div className="hero-gallery" aria-label="Featured template previews">
+        <div className="hero-gallery floating-collage" aria-label="Featured template previews">
           {featured.map((template, index) => (
             <a className={`hero-preview hero-preview-${index + 1}`} href={template.url} key={template.url}>
               <img src={template.preview} alt={`${template.name} website preview`} />
@@ -40,7 +51,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="industry-strip shell" id="industries" aria-label="Browse by industry">
+      <section className="industry-strip shell parallax-band" id="industries" aria-label="Browse by industry">
         <span>Browse by industry</span>
         <div>
           {industries.map((industry) => (
@@ -49,7 +60,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="hotel-feature shell" aria-labelledby="hotel-title">
+      <section className="hotel-feature shell bento-feature" aria-labelledby="hotel-title">
         <div className="hotel-intro">
           <div className="eyebrow">Featured collection / Hotels</div>
           <h2 id="hotel-title">Timeless stays.<br />Unforgettable websites.</h2>
@@ -66,7 +77,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="directory shell" aria-labelledby="directory-title">
+      <section className="directory shell bento-directory" aria-labelledby="directory-title">
         <div className="section-head">
           <div>
             <div className="eyebrow">/INDUSTRY DIRECTORY</div>
@@ -101,7 +112,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="closing shell">
+      <section className="closing shell bento-closing">
         <div className="eyebrow">/NOT SEEING YOUR INDUSTRY?</div>
         <h2>Bring the brief.<br />We&apos;ll design the direction.</h2>
         <a href="https://www.teampsmpv.com/contact-us" className="button-dark">

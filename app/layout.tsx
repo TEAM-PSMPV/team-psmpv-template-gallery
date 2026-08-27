@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "./bento.css";
 
 export const metadata: Metadata = {
   title: "TEAM-PSMPV Design Templates",

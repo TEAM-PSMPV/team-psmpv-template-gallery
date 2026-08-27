@@ -28,6 +28,7 @@ export const industries: Industry[] = [
       { name: "Krishna Orthopedic Centre", url: "https://krishna-orthopedic-centre.team-psmpv.workers.dev/", note: "Hospital website direction", preview: "/previews/krishna-orthopedic-centre.png" },
       { name: "Vivan Child Care & Urology", url: "https://vivan-child-care-urology.team-psmpv.workers.dev/", note: "Hospital website direction", preview: "/previews/vivan-child-care-urology.png" },
       { name: "Mishra Health Center", url: "https://mishrahealthcenter.pages.dev/", note: "Healthcare center direction", preview: "/previews/mishra-health-center.jpg" },
+      { name: "Shree Kusbal Ayurvedam", url: "https://shree-kusbal-ayurvedam.team-psmpv.workers.dev/", note: "Ayurveda clinic direction", preview: "https://shree-kusbal-ayurvedam.team-psmpv.workers.dev/images/hero-ayurveda.png" },
     ],
   },
   {
@@ -54,6 +55,9 @@ export const industries: Industry[] = [
     templates: [
       { name: "Tide & Terrace", url: "https://template-1-restaurant.team-psmpv.workers.dev/", note: "Restaurant website direction", preview: "/previews/tide-and-terrace.jpg" },
       { name: "Mitti & Ember", url: "https://template-2-mitti-and-ember.team-psmpv.workers.dev/", note: "Restaurant website direction", preview: "/previews/mitti-and-ember.jpg" },
+      { name: "Stackhouse Burgers", url: "https://template-4-stackhouse.team-psmpv.workers.dev/", note: "Burger restaurant direction", preview: "https://template-4-stackhouse.team-psmpv.workers.dev/assets/hero-burger.webp" },
+      { name: "Tamra", url: "https://tamra-restaurant-demo.smritiasthana.workers.dev/", note: "Contemporary Indian kitchen direction", preview: "https://tamra-restaurant-demo.smritiasthana.workers.dev/images/tamra/hero-1536.webp" },
+      { name: "Saanjh", url: "https://saanjh-restaurant-demo.smritiasthana.workers.dev/", note: "Modern Indian restaurant direction", preview: "https://saanjh-restaurant-demo.smritiasthana.workers.dev/images/saanjh/food-grid.webp" },
     ],
   },
   {
