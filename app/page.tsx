@@ -21,15 +21,15 @@ export default function Home() {
   return (
     <main>
       <header className="site-header">
-        <Link href="/" className="brand" aria-label="TEAM-PSMPV template gallery home">
+        <Link href="/" className="brand" aria-label="TEAM-PSMPV template gallery home" target="_blank" rel="noopener noreferrer">
           <img src="/team-psmpv-logo.png" alt="" className="brand-mark" />
           <span>TEAM-PSMPV</span>
         </Link>
         <nav className="header-nav" aria-label="Primary navigation">
-          <a href="#templates">Templates</a>
-          <a href="#industries">Industries</a>
+          <a href="#templates" target="_blank" rel="noopener noreferrer">Templates</a>
+          <a href="#industries" target="_blank" rel="noopener noreferrer">Industries</a>
         </nav>
-        <a className="header-cta" href="https://www.teampsmpv.com/contact-us">
+        <a className="header-cta" href="https://www.teampsmpv.com/contact-us" target="_blank" rel="noopener noreferrer">
           Get in touch <span aria-hidden="true">↗</span>
         </a>
       </header>
@@ -39,11 +39,11 @@ export default function Home() {
           <div className="eyebrow"><span className="eyebrow-mark" /> Curated web directions</div>
           <h1>Websites worth<br />stepping into.</h1>
           <p>Browse design-led website templates built for hospitality, healthcare, food, creative teams and more.</p>
-          <a className="hero-button" href="#industries">Explore templates <span aria-hidden="true">↓</span></a>
+          <a className="hero-button" href="#industries" target="_blank" rel="noopener noreferrer">Explore templates <span aria-hidden="true">↓</span></a>
         </div>
         <div className="hero-gallery floating-collage" aria-label="Featured template previews">
           {featured.map((template, index) => (
-            <a className={`hero-preview hero-preview-${index + 1}`} href={template.url} key={template.url}>
+            <a className={`hero-preview hero-preview-${index + 1}`} href={template.url} key={template.url} target="_blank" rel="noopener noreferrer">
               <img src={template.preview} alt={`${template.name} website preview`} />
               <span><b>{template.name}</b><small>{template.industry}</small></span>
             </a>
@@ -55,7 +55,7 @@ export default function Home() {
         <span>Browse by industry</span>
         <div>
           {industries.map((industry) => (
-            <Link href={`/industry/${industry.slug}`} key={industry.slug}>{industry.shortName}</Link>
+            <Link href={`/industry/${industry.slug}`} key={industry.slug} target="_blank" rel="noopener noreferrer">{industry.shortName}</Link>
           ))}
         </div>
       </section>
@@ -74,11 +74,11 @@ export default function Home() {
                   <h2 id={`${industry.slug}-title`}>{industry.name}</h2>
                 </div>
                 <p>{industry.description}</p>
-                <Link href={`/industry/${industry.slug}`}>View all <span aria-hidden="true">↗</span></Link>
+                <Link href={`/industry/${industry.slug}`} target="_blank" rel="noopener noreferrer">View all <span aria-hidden="true">↗</span></Link>
               </div>
               <div className="collection-track">
                 {templates.map((template, templateIndex) => (
-                  <a href={template.url} className={`collection-card collection-card-${(templateIndex % 3) + 1}`} key={template.url}>
+                  <a href={template.url} className={`collection-card collection-card-${(templateIndex % 3) + 1}`} key={template.url} target="_blank" rel="noopener noreferrer">
                     <img src={template.preview} alt={`${template.name} website preview`} loading="lazy" />
                     <span>
                       <b>{template.name}</b>
@@ -109,6 +109,8 @@ export default function Home() {
               className="industry-card"
               key={industry.slug}
               aria-label={`View ${industry.name} design templates`}
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <div className="card-topline">
                 <span>/{String(index + 1).padStart(2, "0")}</span>
@@ -131,7 +133,7 @@ export default function Home() {
       <section className="closing shell bento-closing">
         <div className="eyebrow">/NOT SEEING YOUR INDUSTRY?</div>
         <h2>Bring the brief.<br />We&apos;ll design the direction.</h2>
-        <a href="https://www.teampsmpv.com/contact-us" className="button-dark">
+        <a href="https://www.teampsmpv.com/contact-us" className="button-dark" target="_blank" rel="noopener noreferrer">
           Start a conversation <span aria-hidden="true">↗</span>
         </a>
       </section>

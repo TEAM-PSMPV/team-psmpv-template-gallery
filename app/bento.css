@@ -87,11 +87,19 @@ body {
   border-radius: 18px;
   box-shadow: 0 32px 70px rgba(16, 6, 5, 0.38);
   will-change: translate;
+  background: #6e4635;
 }
 
 .floating-collage .hero-preview img {
+  object-fit: contain;
   transition: transform 0.55s ease;
 }
+
+.floating-collage .hero-preview-1 { background: #78908a; }
+.floating-collage .hero-preview-2 { background: #455d70; }
+.floating-collage .hero-preview-3 { background: #e8aa20; }
+.floating-collage .hero-preview-4 { background: #30451e; }
+.floating-collage .hero-preview-5 { background: #9a7b60; }
 
 .floating-collage .hero-preview:hover img {
   transform: scale(1.035);
@@ -140,10 +148,6 @@ body {
   z-index: 2;
   transform: rotate(3deg);
   --parallax-distance: 96px;
-}
-
-.floating-collage .hero-preview-3:hover {
-  transform: translateX(-50%) translateY(-8px) !important;
 }
 
 .parallax-band {
@@ -228,12 +232,19 @@ body {
   height: 100%;
   min-height: inherit;
   display: block;
-  object-fit: cover;
+  object-fit: contain;
   object-position: top;
+  padding: clamp(7px, 0.8vw, 12px);
   transition: transform 0.5s ease;
 }
 
 .collection-card:hover img { transform: scale(1.025); }
+
+.collection-card:nth-child(5n + 1) { background: #6f4b39; }
+.collection-card:nth-child(5n + 2) { background: #334a54; }
+.collection-card:nth-child(5n + 3) { background: #d99d26; }
+.collection-card:nth-child(5n + 4) { background: #52613b; }
+.collection-card:nth-child(5n + 5) { background: #a3866d; }
 
 .collection-card > span {
   position: absolute;
@@ -405,12 +416,6 @@ body {
 }
 
 @supports (animation-timeline: view()) {
-  .floating-collage .hero-preview {
-    animation: hero-card-parallax linear both;
-    animation-timeline: scroll(root block);
-    animation-range: 0 900px;
-  }
-
   .hotel-card,
   .industry-card,
   .template-card,
@@ -419,6 +424,41 @@ body {
     animation-timeline: view(block);
     animation-range: entry 0% cover 38%;
   }
+}
+
+@supports (animation: hero-orbit 20s linear infinite) {
+  .floating-collage .hero-preview,
+  .floating-collage .hero-preview-1,
+  .floating-collage .hero-preview-2,
+  .floating-collage .hero-preview-3,
+  .floating-collage .hero-preview-4,
+  .floating-collage .hero-preview-5 {
+    left: 50%;
+    right: auto;
+    top: 48%;
+    bottom: auto;
+    width: clamp(350px, 43vw, 690px);
+    height: clamp(275px, 32vw, 475px);
+    transform: none;
+    animation: hero-orbit 20s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+    will-change: transform, opacity;
+  }
+
+  .floating-collage .hero-preview-1 { animation-delay: 0s; }
+  .floating-collage .hero-preview-2 { animation-delay: -4s; }
+  .floating-collage .hero-preview-3 { animation-delay: -8s; }
+  .floating-collage .hero-preview-4 { animation-delay: -12s; }
+  .floating-collage .hero-preview-5 { animation-delay: -16s; }
+
+  .floating-collage .hero-preview:hover { animation-play-state: paused; }
+}
+
+@keyframes hero-orbit {
+  0%, 100% { z-index: 9; opacity: 1; transform: translate(-50%, -42%) scale(1.06); filter: brightness(1); }
+  20% { z-index: 6; opacity: 0.86; transform: translate(12%, -72%) scale(0.78) rotate(3deg); filter: brightness(0.78); }
+  40% { z-index: 3; opacity: 0.62; transform: translate(42%, -15%) scale(0.64) rotate(5deg); filter: brightness(0.62); }
+  60% { z-index: 3; opacity: 0.62; transform: translate(-142%, -15%) scale(0.64) rotate(-5deg); filter: brightness(0.62); }
+  80% { z-index: 6; opacity: 0.86; transform: translate(-112%, -72%) scale(0.78) rotate(-3deg); filter: brightness(0.78); }
 }
 
 @keyframes hero-card-parallax {
@@ -627,5 +667,53 @@ body {
   .bento-closing > * {
     animation: none !important;
     translate: none !important;
+  }
+}
+
+/* Preview frames preserve the full screenshot and use coordinated letterbox colors. */
+.bento-templates .preview-stage { background: #6f4b39; }
+.bento-templates .template-card:nth-child(5n + 2) .preview-stage { background: #334a54; }
+.bento-templates .template-card:nth-child(5n + 3) .preview-stage { background: #d99d26; }
+.bento-templates .template-card:nth-child(5n + 4) .preview-stage { background: #52613b; }
+.bento-templates .template-card:nth-child(5n + 5) .preview-stage { background: #a3866d; }
+
+.bento-templates .preview-stage img {
+  object-fit: contain;
+  padding: clamp(7px, 0.8vw, 12px);
+}
+
+@media (max-width: 900px) {
+  @supports (animation: hero-orbit 20s linear infinite) {
+    .floating-collage .hero-preview,
+    .floating-collage .hero-preview-1,
+    .floating-collage .hero-preview-2,
+    .floating-collage .hero-preview-3,
+    .floating-collage .hero-preview-4,
+    .floating-collage .hero-preview-5 {
+      left: 50%;
+      right: auto;
+      top: 48%;
+      bottom: auto;
+      width: min(64vw, 500px);
+      height: min(46vw, 360px);
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  @supports (animation: hero-orbit 20s linear infinite) {
+    .floating-collage .hero-preview,
+    .floating-collage .hero-preview-1,
+    .floating-collage .hero-preview-2,
+    .floating-collage .hero-preview-3,
+    .floating-collage .hero-preview-4,
+    .floating-collage .hero-preview-5 {
+      left: 50%;
+      right: auto;
+      top: 48%;
+      bottom: auto;
+      width: 82vw;
+      height: 250px;
+    }
   }
 }

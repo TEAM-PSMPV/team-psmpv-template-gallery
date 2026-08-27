@@ -15,12 +15,12 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
   return (
     <main>
       <header className="site-header detail-header">
-        <Link href="/" className="brand" aria-label="TEAM-PSMPV template gallery home">
+        <Link href="/" className="brand" aria-label="TEAM-PSMPV template gallery home" target="_blank" rel="noopener noreferrer">
           <img src="/team-psmpv-logo.png" alt="" className="brand-mark" />
           <span>TEAM-PSMPV</span>
         </Link>
-        <Link href="/" className="back-link"><span aria-hidden="true">←</span> All industries</Link>
-        <a className="header-cta" href="https://www.teampsmpv.com/contact-us">
+        <Link href="/" className="back-link" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">←</span> All industries</Link>
+        <a className="header-cta" href="https://www.teampsmpv.com/contact-us" target="_blank" rel="noopener noreferrer">
           Get in touch <span aria-hidden="true">↗</span>
         </a>
       </header>
@@ -61,7 +61,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
                       alt={`${template.name} website preview`}
                       loading="lazy"
                     />
-                    <a className="preview-link" href={template.url} aria-label={`Open ${template.name} live website`} />
+                    <a className="preview-link" href={template.url} aria-label={`Open ${template.name} live website`} target="_blank" rel="noopener noreferrer" />
                   </div>
                 </div>
                 <div className="template-meta">
@@ -70,7 +70,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
                     <h2>{template.name}</h2>
                     <p>{template.note}</p>
                   </div>
-                  <a href={template.url} className="view-link">View live website <span aria-hidden="true">↗</span></a>
+                  <a href={template.url} className="view-link" target="_blank" rel="noopener noreferrer">View live website <span aria-hidden="true">↗</span></a>
                 </div>
               </article>
             );
@@ -89,7 +89,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
 
       <section className="next-industry shell">
         <span>/KEEP EXPLORING</span>
-        <Link href="/">Browse all industries <b aria-hidden="true">↗</b></Link>
+        <Link href="/" target="_blank" rel="noopener noreferrer">Browse all industries <b aria-hidden="true">↗</b></Link>
       </section>
 
       <footer className="footer shell">
