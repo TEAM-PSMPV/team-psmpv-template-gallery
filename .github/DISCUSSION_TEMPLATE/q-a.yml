@@ -1,0 +1,21 @@
+title: "[Question] "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: Search existing discussions first. Do not include credentials, private data, or vulnerabilities.
+  - type: textarea
+    id: question
+    attributes:
+      label: Question
+    validations:
+      required: true
+  - type: textarea
+    id: attempted
+    attributes:
+      label: What have you tried?
+  - type: input
+    id: environment
+    attributes:
+      label: Relevant environment
+      description: Include operating system and Node.js version when applicable.

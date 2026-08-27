@@ -1,0 +1,11 @@
+# Create the TEAM-PSMPV/maintainers team and grant it repository access.
+* @TEAM-PSMPV/maintainers
+
+/.github/ @TEAM-PSMPV/maintainers
+/package.json @TEAM-PSMPV/maintainers
+/package-lock.json @TEAM-PSMPV/maintainers
+/vite.config.ts @TEAM-PSMPV/maintainers
+/worker/ @TEAM-PSMPV/maintainers
+/scripts/ @TEAM-PSMPV/maintainers
+/SECURITY.md @TEAM-PSMPV/maintainers
+/CLOUDFLARE_DEPLOY.md @TEAM-PSMPV/maintainers
