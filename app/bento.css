@@ -14,10 +14,10 @@ body {
 }
 
 .bento-hero {
-  min-height: 760px;
+  min-height: 840px;
   margin: clamp(12px, 1.4vw, 22px);
   border-radius: var(--bento-radius);
-  grid-template-columns: minmax(380px, 0.86fr) minmax(560px, 1.14fr);
+  display: block;
   isolation: isolate;
   box-shadow: var(--bento-shadow);
 }
@@ -49,31 +49,40 @@ body {
 }
 
 .bento-hero-copy {
-  width: calc(100% - clamp(28px, 4vw, 64px));
-  margin: clamp(28px, 4vw, 64px) 0 clamp(28px, 4vw, 64px) clamp(28px, 4vw, 64px);
-  padding: clamp(32px, 4vw, 62px);
-  align-self: stretch;
+  width: min(780px, calc(100% - 48px));
+  min-height: 265px;
+  margin: 0 auto;
+  padding: clamp(34px, 4vw, 58px) 24px 24px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  border: 1px solid rgba(247, 239, 229, 0.19);
-  border-radius: calc(var(--bento-radius) - 6px);
-  background: linear-gradient(145deg, rgba(247, 239, 229, 0.1), rgba(247, 239, 229, 0.035));
-  backdrop-filter: blur(12px);
+  align-items: center;
+  text-align: center;
+  justify-content: flex-start;
 }
 
 .bento-hero-copy h1 {
-  font-size: clamp(54px, 6.2vw, 100px);
+  margin: 22px 0 12px;
+  font-size: clamp(48px, 5.4vw, 84px);
+}
+
+.bento-hero-copy > p {
+  margin: 0;
+}
+
+.bento-hero-copy .hero-button {
+  margin-top: 18px;
 }
 
 .floating-collage {
-  min-height: 760px;
+  position: absolute;
+  inset: 255px 0 0;
+  min-height: 585px;
   perspective: 1200px;
 }
 
 .floating-collage .hero-preview {
-  width: clamp(230px, 24vw, 390px);
-  height: clamp(190px, 20vw, 300px);
+  width: clamp(290px, 31vw, 500px);
+  height: clamp(240px, 25vw, 385px);
   border: 1px solid rgba(247, 239, 229, 0.78);
   border-radius: 18px;
   box-shadow: 0 32px 70px rgba(16, 6, 5, 0.38);
@@ -89,43 +98,52 @@ body {
 }
 
 .floating-collage .hero-preview-1 {
-  left: 4%;
-  top: 7%;
-  z-index: 3;
-  transform: rotate(-5deg);
+  left: -8%;
+  top: 18%;
+  z-index: 2;
+  transform: rotate(-3deg);
   --parallax-distance: 54px;
 }
 
 .floating-collage .hero-preview-2 {
-  right: -4%;
-  top: 16%;
-  z-index: 2;
-  transform: rotate(4deg);
+  left: 14%;
+  top: 7%;
+  z-index: 4;
+  transform: rotate(-1.5deg);
   --parallax-distance: 82px;
 }
 
 .floating-collage .hero-preview-3 {
-  left: 27%;
-  top: 36%;
-  z-index: 6;
-  transform: rotate(1.5deg);
+  left: 50%;
+  top: 0;
+  z-index: 7;
+  width: clamp(390px, 45vw, 720px);
+  height: clamp(310px, 34vw, 500px);
+  transform: translateX(-50%);
   --parallax-distance: 108px;
 }
 
 .floating-collage .hero-preview-4 {
-  left: 0;
-  bottom: 5%;
+  left: auto;
+  right: 14%;
+  bottom: auto;
+  top: 7%;
   z-index: 4;
-  transform: rotate(-3deg);
+  transform: rotate(1.5deg);
   --parallax-distance: 72px;
 }
 
 .floating-collage .hero-preview-5 {
-  right: 2%;
-  bottom: 2%;
-  z-index: 5;
-  transform: rotate(5deg);
+  right: -8%;
+  bottom: auto;
+  top: 18%;
+  z-index: 2;
+  transform: rotate(3deg);
   --parallax-distance: 96px;
+}
+
+.floating-collage .hero-preview-3:hover {
+  transform: translateX(-50%) translateY(-8px) !important;
 }
 
 .parallax-band {
@@ -135,6 +153,103 @@ body {
   background: rgba(247, 239, 229, 0.72);
   backdrop-filter: blur(14px);
 }
+
+.landing-collections {
+  padding-top: clamp(54px, 7vw, 110px);
+  padding-bottom: clamp(70px, 9vw, 140px);
+}
+
+.industry-collection {
+  padding: clamp(24px, 3vw, 44px) 0 clamp(58px, 7vw, 105px);
+  border-bottom: 1px solid var(--line);
+}
+
+.collection-heading {
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr) minmax(220px, 0.7fr) auto;
+  align-items: end;
+  gap: clamp(24px, 4vw, 64px);
+  margin-bottom: clamp(26px, 3vw, 44px);
+}
+
+.collection-heading h2 {
+  margin: 14px 0 0;
+  font: 400 clamp(38px, 5vw, 72px)/0.95 var(--serif);
+  letter-spacing: -0.055em;
+}
+
+.collection-heading p {
+  max-width: 420px;
+  margin: 0;
+  color: rgba(41, 21, 20, 0.62);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.collection-heading > a {
+  padding-bottom: 9px;
+  border-bottom: 1px solid;
+  color: var(--rust);
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.collection-track {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--bento-gap);
+}
+
+.collection-card {
+  position: relative;
+  grid-column: span 4;
+  min-height: clamp(300px, 34vw, 490px);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--bento-radius);
+  background: var(--sand);
+  box-shadow: 0 18px 42px rgba(41, 21, 20, 0.09);
+  transition: translate 0.25s ease, box-shadow 0.25s ease;
+}
+
+.collection-card:nth-child(4n + 1) { grid-column: span 5; }
+.collection-card:nth-child(4n + 2) { grid-column: span 7; }
+.collection-card:nth-child(4n + 3),
+.collection-card:nth-child(4n + 4) { grid-column: span 6; }
+
+.collection-card:hover {
+  translate: 0 -7px;
+  box-shadow: 0 26px 56px rgba(41, 21, 20, 0.16);
+}
+
+.collection-card img {
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  display: block;
+  object-fit: cover;
+  object-position: top;
+  transition: transform 0.5s ease;
+}
+
+.collection-card:hover img { transform: scale(1.025); }
+
+.collection-card > span {
+  position: absolute;
+  inset: auto 0 0;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 5px 16px;
+  align-items: end;
+  padding: 50px 22px 20px;
+  color: white;
+  background: linear-gradient(transparent, rgba(16, 8, 7, 0.9));
+}
+
+.collection-card b { font: 400 clamp(20px, 2vw, 30px) var(--serif); }
+.collection-card small { grid-column: 1; color: rgba(255, 255, 255, 0.72); }
+.collection-card i { grid-column: 2; grid-row: 1 / span 2; font-style: normal; }
 
 .bento-feature {
   align-items: stretch;
@@ -329,21 +444,21 @@ body {
 
 @media (max-width: 900px) {
   .bento-hero {
-    min-height: 980px;
+    min-height: 890px;
     display: block;
   }
 
   .bento-hero-copy {
-    width: auto;
-    min-height: 460px;
-    margin: 24px;
-    padding: clamp(28px, 6vw, 54px);
+    width: min(720px, calc(100% - 32px));
+    min-height: 320px;
+    margin: 0 auto;
+    padding: 42px 20px 20px;
   }
 
   .floating-collage {
     position: absolute;
-    inset: 45% 0 0;
-    min-height: 540px;
+    inset: 315px 0 0;
+    min-height: 575px;
   }
 
   .floating-collage .hero-preview {
@@ -351,11 +466,24 @@ body {
     height: clamp(170px, 31vw, 245px);
   }
 
-  .floating-collage .hero-preview-1 { left: 3%; top: 5%; }
-  .floating-collage .hero-preview-2 { right: -5%; top: 10%; }
-  .floating-collage .hero-preview-3 { left: 31%; top: 34%; }
-  .floating-collage .hero-preview-4 { left: 1%; bottom: 1%; }
-  .floating-collage .hero-preview-5 { right: 1%; bottom: -2%; }
+  .floating-collage .hero-preview-1 { left: -20%; top: 24%; }
+  .floating-collage .hero-preview-2 { left: 2%; right: auto; top: 10%; }
+  .floating-collage .hero-preview-3 { left: 50%; top: 3%; width: min(64vw, 500px); height: min(46vw, 360px); }
+  .floating-collage .hero-preview-4 { left: auto; right: 2%; top: 10%; }
+  .floating-collage .hero-preview-5 { right: -20%; top: 24%; }
+
+  .collection-heading {
+    grid-template-columns: 1fr auto;
+  }
+
+  .collection-heading p {
+    grid-column: 1;
+  }
+
+  .collection-heading > a {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+  }
 
   .bento-feature .hotel-intro {
     position: static;
@@ -373,7 +501,7 @@ body {
 
 @media (max-width: 640px) {
   .bento-hero {
-    min-height: 850px;
+    min-height: 790px;
     margin: 8px;
     width: calc(100% - 16px);
     min-width: 0;
@@ -382,9 +510,9 @@ body {
   .bento-hero-copy {
     max-width: calc(100% - 24px);
     min-width: 0;
-    min-height: 430px;
-    margin: 12px;
-    padding: 28px 22px;
+    min-height: 350px;
+    margin: 0 auto;
+    padding: 34px 22px 20px;
     overflow: hidden;
   }
 
@@ -400,7 +528,7 @@ body {
   }
 
   .floating-collage {
-    inset: 48% 0 0;
+    inset: 345px 0 0;
   }
 
   .floating-collage .hero-preview {
@@ -416,11 +544,34 @@ body {
     font-size: 15px;
   }
 
-  .floating-collage .hero-preview-1 { left: 4%; top: 3%; }
-  .floating-collage .hero-preview-2 { right: -25%; top: 12%; }
-  .floating-collage .hero-preview-3 { left: 22%; top: 31%; }
-  .floating-collage .hero-preview-4 { left: -20%; bottom: 0; }
-  .floating-collage .hero-preview-5 { right: -8%; bottom: -5%; display: block; }
+  .floating-collage .hero-preview-1 { left: -40%; top: 25%; }
+  .floating-collage .hero-preview-2 { left: -8%; right: auto; top: 13%; }
+  .floating-collage .hero-preview-3 { left: 50%; top: 3%; width: 82vw; height: 250px; }
+  .floating-collage .hero-preview-4 { left: auto; right: -8%; top: 13%; }
+  .floating-collage .hero-preview-5 { right: -40%; top: 25%; bottom: auto; display: block; }
+
+  .collection-heading {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .collection-track {
+    display: flex;
+    width: calc(100% + 18px);
+    padding-right: 18px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .collection-card,
+  .collection-card:nth-child(n) {
+    flex: 0 0 84vw;
+    min-height: 360px;
+    scroll-snap-align: start;
+  }
 
   .bento-feature .hotel-cards {
     grid-template-columns: 1fr;

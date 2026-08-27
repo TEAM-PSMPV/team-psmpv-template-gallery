@@ -16,7 +16,7 @@ export default function Home() {
     const template = allTemplates.find((candidate) => candidate.name === name);
     return template ? [template] : [];
   });
-  const hotels = industries.find((industry) => industry.slug === "hotels")!;
+  const landingIndustries = industries.filter((industry) => industry.templates.length > 0);
 
   return (
     <main>
@@ -60,22 +60,38 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="hotel-feature shell bento-feature" aria-labelledby="hotel-title">
-        <div className="hotel-intro">
-          <div className="eyebrow">Featured collection / Hotels</div>
-          <h2 id="hotel-title">Timeless stays.<br />Unforgettable websites.</h2>
-          <p>Immersive templates for hotels, retreats and places people remember.</p>
-          <Link href="/industry/hotels">View all hotel templates <span aria-hidden="true">→</span></Link>
-        </div>
-        <div className="hotel-cards">
-          {hotels.templates.map((template) => (
-            <a href={template.url} className="hotel-card" key={template.url}>
-              <img src={template.preview} alt={`${template.name} website preview`} loading="lazy" />
-              <span><b>{template.name}</b><i aria-hidden="true">↗</i></span>
-            </a>
-          ))}
-        </div>
-      </section>
+      <div className="landing-collections shell">
+        {landingIndustries.map((industry, industryIndex) => {
+          const templates = industry.templates.filter(
+            (template) => !(industry.slug === "hotels" && template.name === "Form Urban Hotel")
+          );
+
+          return (
+            <section className="industry-collection" aria-labelledby={`${industry.slug}-title`} key={industry.slug}>
+              <div className="collection-heading">
+                <div>
+                  <div className="eyebrow">/{String(industryIndex + 1).padStart(2, "0")} · {industry.shortName}</div>
+                  <h2 id={`${industry.slug}-title`}>{industry.name}</h2>
+                </div>
+                <p>{industry.description}</p>
+                <Link href={`/industry/${industry.slug}`}>View all <span aria-hidden="true">↗</span></Link>
+              </div>
+              <div className="collection-track">
+                {templates.map((template, templateIndex) => (
+                  <a href={template.url} className={`collection-card collection-card-${(templateIndex % 3) + 1}`} key={template.url}>
+                    <img src={template.preview} alt={`${template.name} website preview`} loading="lazy" />
+                    <span>
+                      <b>{template.name}</b>
+                      <small>{template.note}</small>
+                      <i aria-hidden="true">↗</i>
+                    </span>
+                  </a>
+                ))}
+              </div>
+            </section>
+          );
+        })}
+      </div>
 
       <section className="directory shell bento-directory" aria-labelledby="directory-title">
         <div className="section-head">

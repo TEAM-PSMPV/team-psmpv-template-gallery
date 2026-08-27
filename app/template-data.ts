@@ -40,10 +40,10 @@ export const industries: Industry[] = [
     templates: [
       { name: "Form Urban Hotel", url: "https://form-urban-hotel-demo.smritiasthana.workers.dev/", note: "Hospitality website direction", preview: "/previews/form-urban-hotel.png" },
       { name: "Theeram House Kerala", url: "https://theeram-house-kerala-demo.smritiasthana.workers.dev/", note: "Coastal retreat direction", preview: "/previews/theeram-house-kerala.jpg" },
-      { name: "Devdaar House Himalayan", url: "https://devdaar-house-himalayan-demo.smritiasthana.workers.dev/", note: "Himalayan retreat direction", preview: "/previews/devdaar-house-himalayan.jpg" },
-      { name: "Casa Mare Goa", url: "https://casa-mare-goa-demo.smritiasthana.workers.dev/", note: "Coastal hospitality direction", preview: "/previews/casa-mare-goa.jpg" },
+      { name: "Devdaar House Himalayan", url: "https://devdaar-house-himalayan-demo.smritiasthana.workers.dev/", note: "Himalayan retreat direction", preview: "/previews/devdaar.png" },
+      { name: "Casa Mare Goa", url: "https://casa-mare-goa-demo.smritiasthana.workers.dev/", note: "Coastal hospitality direction", preview: "/previews/casa-mare.png" },
       { name: "Avenfold House", url: "https://template-3-hotel.team-psmpv.workers.dev/", note: "Hospitality website direction", preview: "/previews/hotel-template-03.jpg" },
-      { name: "Kesar Bagh Haveli", url: "https://kesar-bagh-haveli-demo.smritiasthana.workers.dev/", note: "Heritage hospitality direction", preview: "/previews/kesar-bagh-haveli.jpg" },
+      { name: "Kesar Bagh Haveli", url: "https://kesar-bagh-haveli-demo.smritiasthana.workers.dev/", note: "Heritage hospitality direction", preview: "/previews/kesar-bagh.png" },
     ],
   },
   {
@@ -54,7 +54,7 @@ export const industries: Industry[] = [
     description: "Dining brands, restaurants and modern food destinations.",
     templates: [
       { name: "Tide & Terrace", url: "https://template-1-restaurant.team-psmpv.workers.dev/", note: "Restaurant website direction", preview: "/previews/tide-and-terrace.jpg" },
-      { name: "Mitti & Ember", url: "https://template-2-mitti-and-ember.team-psmpv.workers.dev/", note: "Restaurant website direction", preview: "/previews/mitti-and-ember.jpg" },
+      { name: "Mitti & Ember", url: "https://template-2-mitti-and-ember.team-psmpv.workers.dev/", note: "Restaurant website direction", preview: "/previews/mitti-and-ember.png" },
       { name: "Stackhouse Burgers", url: "https://template-4-stackhouse.team-psmpv.workers.dev/", note: "Burger restaurant direction", preview: "https://template-4-stackhouse.team-psmpv.workers.dev/assets/hero-burger.webp" },
       { name: "Tamra", url: "https://tamra-restaurant-demo.smritiasthana.workers.dev/", note: "Contemporary Indian kitchen direction", preview: "https://tamra-restaurant-demo.smritiasthana.workers.dev/images/tamra/hero-1536.webp" },
       { name: "Saanjh", url: "https://saanjh-restaurant-demo.smritiasthana.workers.dev/", note: "Modern Indian restaurant direction", preview: "https://saanjh-restaurant-demo.smritiasthana.workers.dev/images/saanjh/food-grid.webp" },
@@ -85,7 +85,7 @@ export const industries: Industry[] = [
     glyph: "M",
     description: "Factories, exporters, product manufacturers and industrial brands.",
     templates: [
-      { name: "Quality Mint & Allied Chemicals", url: "https://quality-mint-allied-chemicals.teampsmpv.workers.dev/", note: "Manufacturing & export direction", preview: "/previews/quality-mint.jpg" },
+      { name: "Quality Mint & Allied Chemicals", url: "https://quality-mint-allied-chemicals.teampsmpv.workers.dev/", note: "Manufacturing & export direction", preview: "/previews/quality-mint.png" },
     ],
   },
   {
